@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import Transaction from "../../components/transaction/Transaction";
-import { getUser, updateUser  } from "../../redux/userSlice";
+import { getUser, updateUser } from "../../redux/userSlice";
 import "./profile.scss";
 
 const Profile = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [editMode, setEditMode] = useState(false);
 
   const dispatch = useDispatch();
@@ -27,6 +27,8 @@ const Profile = () => {
           }
         );
         dispatch(getUser(response.data.body));
+        setFirstName(response.data.body.firstName);
+        setLastName(response.data.body.lastName);
       } catch (error) {
         console.error("Error fetching user profile:", error);
       }
@@ -37,15 +39,13 @@ const Profile = () => {
     }
   }, [token, dispatch]);
 
-
-
   const handleSave = async () => {
     try {
-       await axios.put(
+      await axios.put(
         "http://localhost:3001/api/v1/user/profile",
         {
           firstName: firstName,
-          lastName: lastName
+          lastName: lastName,
         },
         {
           headers: {
@@ -68,11 +68,15 @@ const Profile = () => {
     <div className="profile">
       <div className="header">
         <>
-        <h1>Welcome back</h1>
-        <h1> {user?.firstName} {user?.lastName}</h1>
+          <h1>Welcome back</h1>
+
           {!editMode && (
             <>
-            
+              <h1>
+               
+                {user?.firstName} {user?.lastName}
+              </h1>
+
               <button className="edit-button" onClick={controleEditMode}>
                 Edit Name
               </button>
@@ -100,8 +104,12 @@ const Profile = () => {
             />
           </div>
           <div className="edit-buttons">
-          <button type="button" onClick={handleSave}>Save</button>
-            <button type="button"  onClick={controleEditMode}  >Cancel</button>
+            <button type="button" onClick={handleSave}>
+              Save
+            </button>
+            <button type="button" onClick={controleEditMode}>
+              Cancel
+            </button>
           </div>
         </form>
       )}

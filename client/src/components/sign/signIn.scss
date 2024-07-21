@@ -1,3 +1,5 @@
+// signIn.scss
+
 .signInSection {
   flex: 1;
   display: flex;
@@ -7,86 +9,77 @@
   height: 80vh;
   background-color: #12002b;
 
+  .sign-in-content {
+    box-sizing: border-box;
+    background-color: white;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    text-align: center;
 
-.sign-in-content {
-  box-sizing: border-box;
-  background-color: white;
-  width: 300px;
-  margin: 0 auto;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  padding: 2rem;
-  text-align: center;
-}
+    .sign-in-icon {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
 
-.sign-in-icon {
-  font-size:1rem;
-  // color: #00bc77;
-  margin-bottom: 1rem;
-}
+    .input-wrapper {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-bottom: 1rem;
 
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin-bottom: 1rem;
-}
+      label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
 
-.input-wrapper label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
+      input {
+        padding: 8px;
+        font-size: 1.2rem;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
 
-.input-wrapper input {
-  padding: 5px;
-  font-size: 1.2rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
+    .input-remember {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 1rem;
 
-.input-remember {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
+      input[type="checkbox"] {
+        margin-right: 0.5rem;
+      }
 
-.input-remember input[type="checkbox"] {
-  margin-right: 0.5rem;
-}
+      label {
+        font-size: 1rem;
+        color: #666;
+      }
+    }
 
-.sign-in-button {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
-  border-radius: 3px;
-  text-decoration: none;
-}
+    .sign-in-button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      border: 2px solid #00bc77;
+      background-color: #00bc77;
+      color: #fff;
+      border-radius: 3px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  border-top: 2px solid #ccc;
-  padding: 1rem 0 1.5rem;
-
-  margin-top: 3rem;
-
-
-  .footer-text {
-    margin: 0;
-    padding: 0;
+  .register {
     font-size: 0.9rem;
     color: #666;
+    margin-top: 1rem;
   }
-}
-
-
-
-
 }

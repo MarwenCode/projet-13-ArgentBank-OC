@@ -13,6 +13,7 @@ import Profile from "./pages/profile/Profile";
 // import Register from "./components/register/Register";
 import { useSelector } from "react-redux";
 import "./App.css"
+import Footer from "./components/footer/Footer";
 
 function App() {
   // const authState = useSelector((state) => state.auth);
@@ -28,6 +29,7 @@ function App() {
           {/* <Route path="/profile" element={authState.token ? <Profile /> : <SignIn/>} /> */}
           <Route path="/" element={<Home />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
