@@ -71,3 +71,35 @@
     font-size: 14px; 
   }
 }
+
+/* Media Queries for very small screens */
+@media (max-width: 375px) {
+  .main-nav-logo-image {
+    width: 130px; 
+  }
+
+  .main-nav-item {
+    font-size: 12px; 
+    margin-left: 0; 
+    margin-bottom: 8px; 
+  }
+
+  .main-nav-item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 325px) {
+  .main-nav-logo-image {
+    width: 100px; 
+  }
+
+  .main-nav-item {
+    font-size: 8px; 
+    margin-bottom: 5px; 
+  }
+
+  .main-nav-item:last-child {
+    margin-bottom: 0;
+  }
+}

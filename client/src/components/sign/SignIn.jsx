@@ -22,7 +22,7 @@ const SignIn = () => {
     if (savedEmail && savedPassword) {
       emailRef.current.value = savedEmail;
       passwordRef.current.value = savedPassword;
-      rememberMeRef.current.checked = true; // Also check the remember me checkbox
+      rememberMeRef.current.checked = true;
     }
   }, []);
 
