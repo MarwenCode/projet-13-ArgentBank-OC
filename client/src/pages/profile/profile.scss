@@ -107,9 +107,9 @@
   }
 }
 
-@media (max-width: 325px) {
+@media (max-width: 425px) {
   .edit-form {
-    width: 50%; 
+    width: 80%; 
   }
 
   .header h1 {
@@ -125,6 +125,8 @@
     .form-control {
       font-size: 0.8rem;
       padding: 0.4rem;
+      width: 60%;
+     
     }
   }
 
@@ -137,7 +139,7 @@
 
 @media (max-width: 375px) {
   .edit-form {
-    width:40%; 
+    // width:40%; 
   }
 
   .header h1 {
@@ -153,6 +155,7 @@
     .form-control {
       font-size: 0.8rem;
       padding: 0.4rem;
+    
     }
   }
 
@@ -165,7 +168,7 @@
 
 @media (max-width: 325px) {
   .edit-form {
-    width: 40%; 
+    // width: 40%; 
   }
 
   .header h1 {
@@ -181,6 +184,7 @@
     .form-control {
       font-size: 0.7rem;
       padding: 0.3rem;
+      // width: 40%;
     }
   }
 

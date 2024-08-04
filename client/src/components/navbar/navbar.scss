@@ -20,6 +20,12 @@
   width: 200px;
 }
 
+.main-nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .main-nav-item {
   text-decoration: none;
   margin-left: 20px;
@@ -28,12 +34,16 @@
   align-items: center;
 }
 
+.main-nav-item-text {
+  margin-left: 8px; 
+}
+
 .main-nav-item:hover {
   text-decoration: underline;
 }
 
 .fa-sign-out-alt,
-.fa-circle {
+.fa-user-circle {
   margin-left: 5px;
 }
 
@@ -42,23 +52,28 @@
 }
 
 /* Media Queries for responsiveness */
+@media (max-width: 1024px) {
+  .main-nav {
+    padding: 5px 15px; 
+  }
+}
+
 @media (max-width: 768px) {
   .main-nav {
-    flex-direction: column; 
-    align-items: flex-start; 
+    padding: 5px 10px;
   }
 
-  .main-nav-logo {
-    margin-bottom: 10px;
+  .main-nav-logo-image {
+    width: 180px; 
+  }
+
+  .main-nav-links {
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
   }
 
   .main-nav-item {
-    margin-left: 0;
-    margin-bottom: 10px; 
-  }
-
-  .main-nav-item:last-child {
-    margin-bottom: 0;
+    margin-left: 15px; 
   }
 }
 
@@ -72,7 +87,6 @@
   }
 }
 
-/* Media Queries for very small screens */
 @media (max-width: 375px) {
   .main-nav-logo-image {
     width: 130px; 
@@ -80,12 +94,7 @@
 
   .main-nav-item {
     font-size: 12px; 
-    margin-left: 0; 
-    margin-bottom: 8px; 
-  }
-
-  .main-nav-item:last-child {
-    margin-bottom: 0;
+    margin-left: 10px; 
   }
 }
 
@@ -95,11 +104,7 @@
   }
 
   .main-nav-item {
-    font-size: 8px; 
-    margin-bottom: 5px; 
-  }
-
-  .main-nav-item:last-child {
-    margin-bottom: 0;
+    font-size: 10px; 
+    margin-left: 5px; 
   }
 }

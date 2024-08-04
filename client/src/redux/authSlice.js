@@ -14,7 +14,7 @@ const authSlice = createSlice({
   
       state.token = action.payload.token;
       state.error = null;
-      // localStorage.setItem('token', action.payload.token);
+      localStorage.setItem('token', action.payload.token);
     },
     setError: (state, action) => {
       state.error = action.payload;
@@ -37,18 +37,3 @@ export default authSlice.reducer;
 
 
 
-
-
-
-
-// export const registerUser = createAsyncThunk(
-//   'auth/registerUser',
-//   async (userData, { rejectWithValue }) => {
-//     try {
-//       const response = await axios.post('http://localhost:3001/api/v1/user/signup', userData);
-//       return response.data.body;
-//     } catch (error) {
-//       return rejectWithValue(error.response.data);
-//     }
-//   }
-// );

@@ -6,6 +6,7 @@ import { faUserCircle, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { logout } from '../../redux/authSlice';
 import { getUser, clearUser } from '../../redux/userSlice';
 import axios from 'axios';
+import './navbar.scss'; 
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -48,22 +49,22 @@ const Navbar = () => {
         />
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
-      <div>
+      <div className="main-nav-links">
         {token ? (
           <>
             <Link className="main-nav-item" to="/profile">
               <FontAwesomeIcon icon={faUserCircle} />
-              {user.firstName || ''}
+              <span className="main-nav-item-text">{user.firstName || ''}</span>
             </Link>
             <span className="main-nav-item" onClick={handleLogout} style={{ cursor: 'pointer' }}>
               <FontAwesomeIcon icon={faSignOutAlt} />
-              Sign out
+              <span className="main-nav-item-text">Sign out</span>
             </span>
           </>
         ) : (
           <Link className="main-nav-item" to="/login">
             <FontAwesomeIcon icon={faUserCircle} />
-            Sign In
+            <span className="main-nav-item-text">Sign In</span>
           </Link>
         )}
       </div>
@@ -72,12 +73,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-
 
 

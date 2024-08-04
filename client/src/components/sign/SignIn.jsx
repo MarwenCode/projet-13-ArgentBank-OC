@@ -5,7 +5,6 @@ import { loginSuccess, setError } from '../../redux/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 import './signIn.scss';
 
 const SignIn = () => {
@@ -16,33 +15,33 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
- 
-    const savedEmail = localStorage.getItem('savedEmail');
-    const savedPassword = localStorage.getItem('savedPassword');
-    if (savedEmail && savedPassword) {
-      emailRef.current.value = savedEmail;
-      passwordRef.current.value = savedPassword;
-      rememberMeRef.current.checked = true;
+   
+    const token = localStorage.getItem('token') 
+    if (token) {
+    
+      dispatch(loginSuccess({ token }));
+      navigate('/profile');
     }
-  }, []);
+  }, [dispatch, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     const rememberMe = rememberMeRef.current.checked;
+
     try {
       const response = await axios.post('http://localhost:3001/api/v1/user/login', { email, password });
       const token = response.data.body.token;
       dispatch(loginSuccess({ token }));
 
       if (rememberMe) {
+      
         localStorage.setItem('token', token);
-        localStorage.setItem('savedEmail', email);
-        localStorage.setItem('savedPassword', password);
+       
       } else {
-        localStorage.removeItem('savedEmail');
-        localStorage.removeItem('savedPassword');
+    
+        localStorage.removeItem('token'); 
       }
 
       navigate('/profile');
@@ -81,9 +80,6 @@ const SignIn = () => {
             </div>
             <button className="sign-in-button" type="submit">Sign In</button>
           </form>
-          {/* <div className="register">
-            If you do not have an account, click <Link to="/register">here</Link>
-          </div> */}
         </section>
       </main>
     </div>
@@ -91,4 +87,5 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
 

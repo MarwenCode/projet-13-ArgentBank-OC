@@ -4,11 +4,13 @@ import axios from "axios";
 import Transaction from "../../components/transaction/Transaction";
 import { getUser, updateUser } from "../../redux/userSlice";
 import "./profile.scss";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [editMode, setEditMode] = useState(false);
+  const navigate = useNavigate()
 
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
@@ -36,7 +38,12 @@ const Profile = () => {
 
     if (token) {
       fetchUserProfile();
+    }else {
+      navigate('/login')
+
     }
+
+
   }, [token, dispatch]);
 
   const handleSave = async () => {
